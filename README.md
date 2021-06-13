@@ -1,6 +1,10 @@
-## SCAN, C-SCAN, LOOK and C-LOOK DISK SCHEDULING ALGORITHMS
+## DISK SCHEDULING ALGORITHMS
 
 Operating Systems Final Project.
+- SCAN
+- C-SCAN
+- LOOK
+- C-LOOK 
 
 ## Test Inputs
 
