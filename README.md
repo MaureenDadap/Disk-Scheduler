@@ -1,6 +1,6 @@
 ## DISK SCHEDULING ALGORITHMS
 
-Operating Systems Final Project.
+Operating Systems Finals 50%.
 - SCAN
 - C-SCAN
 - LOOK
