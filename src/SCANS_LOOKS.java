@@ -78,11 +78,13 @@ public class SCANS_LOOKS {
         movementMapRight = new LinkedHashMap<Integer, String>();
         movementMapLeft = new LinkedHashMap<Integer, String>();
 
-        requestsQueue = queueInput(); // input requests
+        requestsQueue = inputQueue(); // input requests
 
-        System.out.println("> HEAD start position: ");
-        System.out.print("-> ");
-        head = scanner.nextInt();
+        do {
+            System.out.println("> HEAD start position: ");
+            System.out.print("-> ");
+            head = scanner.nextInt();
+        } while (head < 0 || head > 199);
 
         tracksList = requestsQueue;
 
@@ -102,7 +104,7 @@ public class SCANS_LOOKS {
      *
      * @return The list of I/O requests.
      */
-    public static List<Integer> queueInput() {
+    public static List<Integer> inputQueue() {
         List<String> input = new ArrayList<String>();
         List<Integer> queue = new ArrayList<Integer>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -267,6 +269,11 @@ public class SCANS_LOOKS {
             // SCAN ALGORITHM
             // ------------------------------
             if (choice == '1') {
+                System.out.println("  ________________________________________________");
+                System.out.println("||                                                ||");
+                System.out.println("||                 SCAN ALGORITHM                 ||");
+                System.out.println("||________________________________________________||");
+
                 initialize(scanner);
 
                 // -----------------
@@ -344,6 +351,11 @@ public class SCANS_LOOKS {
             // C-SCAN ALGORITHM
             // ------------------------------
             else if (choice == '2') {
+                System.out.println("  ________________________________________________");
+                System.out.println("||                                                ||");
+                System.out.println("||               C-SCAN ALGORITHM                 ||");
+                System.out.println("||________________________________________________||");
+
                 initialize(scanner);
 
                 // -----------------
@@ -424,6 +436,11 @@ public class SCANS_LOOKS {
             // LOOK ALGORITHM
             // ------------------------------
             else if (choice == '3') {
+                System.out.println("  ________________________________________________");
+                System.out.println("||                                                ||");
+                System.out.println("||                LOOK ALGORITHM                  ||");
+                System.out.println("||________________________________________________||");
+
                 initialize(scanner);
                 // -----------------
                 // LOOK RIGHT
@@ -435,14 +452,14 @@ public class SCANS_LOOKS {
                 int index = tracksList.indexOf(head);
                 int prev = head;
                 for (int i = index; i < tracksList.size() - 1; i++) {
-                   // put the current track and the display string in the map
-                   movementMapRight.put(tracksList.get(i), generateRow(i));
+                    // put the current track and the display string in the map
+                    movementMapRight.put(tracksList.get(i), generateRow(i));
 
-                   // get the distance between the current track and prev
-                   seekTime += Math.abs(tracksList.get(i) - prev);
+                    // get the distance between the current track and prev
+                    seekTime += Math.abs(tracksList.get(i) - prev);
 
-                   // current is now prev
-                   prev = tracksList.get(i);
+                    // current is now prev
+                    prev = tracksList.get(i);
                 }
 
                 // then go back to the head and move left, until before the end of disk
@@ -499,6 +516,11 @@ public class SCANS_LOOKS {
             // C-LOOK ALGORITHM
             // ------------------------------
             else if (choice == '4') {
+                System.out.println("  ________________________________________________");
+                System.out.println("||                                                ||");
+                System.out.println("||               C-LOOK ALGORITHM                 ||");
+                System.out.println("||________________________________________________||");
+
                 initialize(scanner);
 
                 // -----------------
@@ -545,27 +567,27 @@ public class SCANS_LOOKS {
                 index = tracksList.indexOf(head);
                 prev = head;
                 for (int i = index; i > 0; i--) {
-                   // put the current track and the display string in the map
-                   movementMapLeft.put(tracksList.get(i), generateRow(i));
+                    // put the current track and the display string in the map
+                    movementMapLeft.put(tracksList.get(i), generateRow(i));
 
-                   // get the distance between the current track and prev
-                   seekTime += Math.abs(tracksList.get(i) - prev);
+                    // get the distance between the current track and prev
+                    seekTime += Math.abs(tracksList.get(i) - prev);
 
-                   // current is now prev
-                   prev = tracksList.get(i);
+                    // current is now prev
+                    prev = tracksList.get(i);
                 }
 
                 // then go to the end and move left again until before the head
                 index = tracksList.indexOf(DISK_END) - 1;
                 for (int i = index; i > tracksList.indexOf(head); i--) {
-                   // put the current track and the display string in the map
-                   movementMapLeft.put(tracksList.get(i), generateRow(i));
+                    // put the current track and the display string in the map
+                    movementMapLeft.put(tracksList.get(i), generateRow(i));
 
-                   // get the distance between the current track and prev
-                   seekTime += Math.abs(tracksList.get(i) - prev);
+                    // get the distance between the current track and prev
+                    seekTime += Math.abs(tracksList.get(i) - prev);
 
-                   // current is now prev
-                   prev = tracksList.get(i);
+                    // current is now prev
+                    prev = tracksList.get(i);
                 }
 
                 display(tableHeaderText, tracksList, movementMapLeft);
