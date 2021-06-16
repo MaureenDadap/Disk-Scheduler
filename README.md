@@ -5,14 +5,6 @@ Operating Systems Finals 50%.
 - C-SCAN
 - LOOK
 - C-LOOK 
-
-## Test Inputs
-
-98 183 37 122 14 124 65 67
-82 170 43 140 24 16 190
-176 79 34 60 92 11 41 114
-98 137 122 183 14 133 65 78
-
 ## Inputs with paper simulation
 
 195 31 183 117 36 29 191 172 - 50
